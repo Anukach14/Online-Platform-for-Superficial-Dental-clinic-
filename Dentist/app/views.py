@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login 
 from django.contrib import messages
 # Create your views here.
 def index(request):
@@ -21,6 +22,18 @@ def Contact(request):
     return render(request,'Contact.html')
 
 def handleLogin(request):
+    if request.method=="POST":
+        username=request.POST.get("username")
+        pass1=request.POST.get("pass1")
+        myuser=authenticate(username=username,password=pass1)
+        if myuser is not None:
+            login(request,myuser)
+            messages.success(request,"Login Success")
+            return redirect('/')
+        else:
+            messages.error(request,"Invalid Credentails")
+            return redirect('/Login')
+            
     return render(request,'Login.html')
 
 def handlesignup(request):
