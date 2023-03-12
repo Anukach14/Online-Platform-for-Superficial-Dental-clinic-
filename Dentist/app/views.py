@@ -1,3 +1,4 @@
+from django.forms import EmailField
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login 
@@ -29,7 +30,7 @@ def handleLogin(request):
         if myuser is not None:
             login(request,myuser)
             messages.success(request,"Login Success")
-            return redirect('/')
+            return redirect('/Appointment')
         else:
             messages.error(request,"Invalid Credentails")
             return redirect('/Login')
@@ -66,5 +67,19 @@ def handlesignup(request):
         return redirect('/Login')
     
     return render(request,'signup.html')
+
+def Appointment(request):
+    if request.method=="POST":
+        FirstName=request.POST.get("PatientName")
+        LastName=request.POST.get("Patientsurname")
+        Email=request.POST.get("Patientemail")
+        Age=request.POST.get("Patientage")
+        Date=request.POST.get("Appointmentdate")
+        Time=request.POST.get("AppointmentTime")
+        myuser=Appointment.objects.create_Appointment(FirstName,LastName,Email,Age,Date,Time)
+        myuser.save()
+        
+        messages.success(request,"Your Appointment is Confirmed")    
+    return render(request,'Appointment.html')
 
 
