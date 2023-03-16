@@ -68,18 +68,6 @@ def handlesignup(request):
     
     return render(request,'signup.html')
 
-def Appointment(request):
-    if request.method=="POST":
-        FirstName=request.POST.get("PatientName")
-        LastName=request.POST.get("Patientsurname")
-        Email=request.POST.get("Patientemail")
-        Age=request.POST.get("Patientage")
-        Date=request.POST.get("Appointmentdate")
-        Time=request.POST.get("AppointmentTime")
-        myuser=Appointment.objects.create_Appointment(FirstName,LastName,Email,Age,Date,Time)
-        myuser.save()
-        
-        messages.success(request,"Your Appointment is Confirmed")    
-    return render(request,'Appointment.html')
+
 
 
