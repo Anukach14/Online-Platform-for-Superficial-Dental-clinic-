@@ -14,4 +14,11 @@ class Appointment(models.Model):
     
     
     def __str__(self):
-        return self.patientname+"you have appointment with" +self.doctorname  
+        return self.name+"Your Appointment is Confirmed" 
+
+class Blogs(models.Model): 
+    title=models.CharField(max_length=100)
+    description=models.TextField()
+    authname=models.CharField(max_length=50) 
+    img=models.ImageField(upload_to='pics',blank=True,null=True)
+    timeStamp=models.DateTimeField(auto_now_add=True)  
