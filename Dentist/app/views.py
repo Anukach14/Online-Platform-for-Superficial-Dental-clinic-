@@ -3,6 +3,8 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login 
 from django.contrib import messages
+from .models import Appointment
+
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -68,6 +70,18 @@ def handlesignup(request):
     
     return render(request,'signup.html')
 
-
+def Appointment(request):
+    if request.method=="POST":
+        fname=request.POST.get("name")
+        femail=request.POST.get("email")
+        fage=request.POST.get("age")
+        
+        date=request.POST.get("appointmentdate")
+        time=request.POST.get("appointmentTime")
+        query=Appointment(name=fname,email=femail,age=fage,appointmentdate=date,appointmentTime=time)
+        query.save()
+        messages.info(request,"Your Appointment is Confirmed")
+        return redirect('/Appointment')    
+    return render(request,'Appointment.html')
 
 
