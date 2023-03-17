@@ -117,17 +117,20 @@
         		</div>
         	</div>
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
+        		{% for post in allPosts reversed %}
+            <div class="staff">
       				
       				<div class="info text-center">
-      					
+      					<h5 class="card-title">{{post.title}}</h5>
       					<div class="text">
-	        				<h6>"Best ever visit to a dentist! I will tell all my family and friends. Very friendly and professional, just the best in every way."</h6>
-                    <h3>Atharva</h3>
+	        				<p style="color:White;">{{post.description}}</p>
+                  <p style="color:White">Posted By :<b>{{post.authname}}</b></p>
+                  <p style="color:White;">TimeStamp :<b>{{post.timeStamp}}</b></p> 
 	        			</div>
       				</div>
         		</div>
         	</div>
+          {% endfor %}
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
       				

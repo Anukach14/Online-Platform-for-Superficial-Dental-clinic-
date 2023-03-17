@@ -3,7 +3,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login 
 from django.contrib import messages
-from .models import Appointment
+from .models import Appointment,Blogs 
 
 # Create your views here.
 def index(request):
@@ -16,7 +16,15 @@ def Treatments(request):
     return render(request,'Treatments.html')
 
 def Blog(request):
-    return render(request,'Blog.html')
+    allPosts=Blogs.objects.all()
+    context={'allPosts':allPosts}
+    print(allPosts)
+   
+    
+    
+    
+    
+    return render(request,'Blog.html',context)
 
 def About(request):
     return render(request,'About.html')
