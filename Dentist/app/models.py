@@ -5,17 +5,15 @@ from django.db import models
 
     
 class Appointment(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)  # Added a name field
     email = models.EmailField(max_length=50)
-    age = models.PositiveBigIntegerField(null=True,blank=True)
-   
+    age = models.PositiveBigIntegerField(null=True, blank=True)
+    phoneNumber = models.CharField(max_length=15, null=True, blank=True)
     appointmentdate = models.DateField(max_length=10)
-    appointmentTime = models.TimeField(null=True,blank=True)
-    
-    
-    def __str__(self):
-        return self.name+"Your Appointment is Confirmed" 
+    appointmentTime = models.TimeField(null=True, blank=True)
 
+    def __str__(self):
+        return self.name + " - Your Appointment is Confirmed"
 class Blogs(models.Model): 
     title=models.CharField(max_length=100)
     description=models.TextField()

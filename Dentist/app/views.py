@@ -79,17 +79,15 @@ def handlesignup(request):
     return render(request,'signup.html')
 
 def Appointment(request):
-    if request.method=="POST":
-        fname=request.POST.get("name")
-        femail=request.POST.get("email")
-        fage=request.POST.get("age")
-        
-        date=request.POST.get("appointmentdate")
-        time=request.POST.get("appointmentTime")
-        query=Appointment(name=fname,email=femail,age=fage,appointmentdate=date,appointmentTime=time)
+    if request.method == "POST":
+        fname = request.POST.get("name")
+        femail = request.POST.get("email")
+        fage = request.POST.get("age")
+        phone = request.POST.get("phone")
+        date = request.POST.get("appointmentdate")
+        time = request.POST.get("appointmentTime")
+        query = Appointment(name=fname, email=femail, age=fage, phoneNumber=phone, appointmentdate=date, appointmentTime=time)
         query.save()
-        messages.info(request,"Your Appointment is Confirmed")
-        return redirect('/Appointment')    
-    return render(request,'Appointment.html')
-
-
+        messages.info(request, "Your Appointment is Confirmed")
+        return redirect('/Appointment')
+    return render(request, 'Appointment.html')
