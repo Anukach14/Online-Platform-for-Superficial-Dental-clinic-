@@ -24,3 +24,11 @@ class Blogs(models.Model):
     
     def __str__(self):
         return f'Uploaded by {self.authname} ' 
+    
+class Contact(models.Model):
+    name=models.CharField(max_length=50)
+    email=models.EmailField(max_length=50)
+    phoneNumber = models.CharField(max_length=15, null=True, blank=True)
+    description=models.CharField(max_length=100,null=True, blank=True)
+    
+        

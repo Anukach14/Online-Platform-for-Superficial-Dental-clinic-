@@ -65,22 +65,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-    <section class="home-slider owl-carousel img" style="background-image: url(https://assets.website-files.com/621324d2940bf176593eee01/624a7e88e078567ae8d6c397_AdobeStock_256407688.jpg);">
-
-      <div class="slider-item" >
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center">
-
-            <div class="col-md-7 col-sm-12 text-center ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">Patient Testimonial</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="home.html">Home</a></span> <span>Patient Testimonial</span></p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
+   
 
     <section class="ftco-section">
       <div class="container">
@@ -91,33 +76,16 @@
             
           </div>
         </div>
-        <div class="row">
+        {% for post in allPosts reversed %}
+        <div class="container">
+         
+            <div class="col-md-7 heading-section ftco-animate text-center">
+            </div>
+         
+
+        	
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"It is a friendly and cost effective dental clinic in the area. Doctors are so experienced, cheerful and satisfying. Especially orthodontic treatment by Dr. Shruti. Overall fantastic services provided."</h6>
-                   <h3> Mahesh</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"Best clinic for dental treatment.. In.. Pimpri... Excellent service... The doctors are very nice and humble."</h6>
-                   <h3>Saurabh Mane</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		{% for post in allPosts reversed %}
+        		
             <div class="staff">
       				
       				<div class="info text-center">
@@ -130,139 +98,13 @@
       				</div>
         		</div>
         	</div>
+        </div>
+    
           {% endfor %}
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"Services very good and doctor are supportive and finish there work on given time ........."</h6>
-                    <h3>Hardik </h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        </div>
-      </div>
+        
     
-    
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      			
-      			<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"I got my dental treatment from here and it's the best in this area...."</h6>
-                    <h3>Manish</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"I am much impressed by the high standard of Machines, Systems, Hygiene, Moving ExRay Machine with declared Zero Radiation pilferages. Doctor is also very expert and professional, timely attending and doing the treatment accurately ."</h6>
-                   <h3>Patil</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"The word 'Hospital' scares but after visiting here and seeing the world class equipments, hygiene and utmost care, it turned into Hospitality.. Very nice effort of oral care in Varanasi..."</h6>
-                    <h3>Rao</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>Very good service, clean sanitized environment, proper facilities and amenities. The doctor is also very kind, caring and helpful."</h6>
-                    <h3>Singh </h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        </div>
-      </div>
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      			
-      			<div class="info text-center">
-      				
-      					<div class="text">
-	        				<h6>"I'm very very satisfied with braces treatment done by Dr. Shruti. He gave a new look to my personality. Highly recommended for braces."</h6>
-                    <h3>Sunil</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"Best place to have your dental treatment here in very reasonable cost. Well organized treatment procedure. Great group of doctors, well experienced and so friendly. You will get best suggestions suited for you. I had dental implant.</h6><h3>Anil</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>"So happy to get such dental treatment in varanasi. Well trained surgeons truly advanced equipments."</h6>
-                    <h3>Ashutosh</h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-      				
-      				<div class="info text-center">
-      					
-      					<div class="text">
-	        				<h6>Also we have a lady doctor maybe for those who are not comfortable with Male doctors. At last, I would like to tell you all that it is one of the cleanest dental clinics all over the city."</h6>
-                    <h3>Rudra Kumar </h3>
-	        			</div>
-      				</div>
-        		</div>
-        	</div>
-        </div>
-      </div>
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
+      
+      
           </section> 
          
 

@@ -3,7 +3,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login 
 from django.contrib import messages
-from .models import Appointment,Blogs 
+from .models import Appointment,Blogs,Contact
 
 # Create your views here.
 def index(request):
@@ -29,7 +29,16 @@ def Blog(request):
 def About(request):
     return render(request,'About.html')
 
-def Contact(request):
+def Con(request):
+    if request.method=="POST":
+        fname=request.POST.get("name")
+        femail=request.POST.get("email") 
+        phone=request.POST.get("phone")
+        desc=request.POST.get("desc")
+        query=Contact(None,fname,femail,phone,desc)  
+        query.save()
+        messages.info(request, "Thanks For the Feedback ") 
+        return redirect('/Contact')
     return render(request,'Contact.html')
 
 def handleLogin(request):
@@ -78,15 +87,16 @@ def handlesignup(request):
     
     return render(request,'signup.html')
 
-def Appointment(request):
+def App(request):
     if request.method == "POST":
         fname = request.POST.get("name")
         femail = request.POST.get("email")
         fage = request.POST.get("age")
         phone = request.POST.get("phone")
-        date = request.POST.get("appointmentdate")
-        time = request.POST.get("appointmentTime")
-        query = Appointment(name=fname, email=femail, age=fage, phoneNumber=phone, appointmentdate=date, appointmentTime=time)
+        fdate = request.POST.get("appointmentdate")
+        ftime = request.POST.get("appointmentTime")
+        print(fname,femail,fage,phone,fdate,ftime)
+        query = Appointment(None,fname ,femail, fage, phone, fdate, ftime)
         query.save()
         messages.info(request, "Your Appointment is Confirmed")
         return redirect('/Appointment')

@@ -6,8 +6,8 @@ urlpatterns = [
     path('Treatments',views.Treatments,name='Treatments'),
     path('Blog',views.Blog,name='Blog'),
     path('About',views.About,name='About'),
-    path('Contact',views.Contact,name='Contact'),
+    path('Contact',views.Con,name='Con'),
     path('Login',views.handleLogin,name='handleLogin'),
     path('signup',views.handlesignup,name='handlesignup'),
-    path('Appointment',views.Appointment,name='Appointment'),
+    path('Appointment',views.App,name='App'),
 ]
