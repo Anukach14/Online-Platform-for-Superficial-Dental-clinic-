@@ -98,6 +98,14 @@ def App(request):
         print(fname,femail,fage,phone,fdate,ftime)
         query = Appointment(None,fname ,femail, fage, phone, fdate, ftime)
         query.save()
+        
         messages.info(request, "Your Appointment is Confirmed")
         return redirect('/Appointment')
     return render(request, 'Appointment.html')
+
+
+def MyAppointments(request):
+     allPosts=Appointment.objects.all()
+     context={'allPosts':allPosts}
+     print(allPosts)
+     return render(request, 'MyAppointments.html')

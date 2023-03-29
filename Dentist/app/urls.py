@@ -10,4 +10,6 @@ urlpatterns = [
     path('Login',views.handleLogin,name='handleLogin'),
     path('signup',views.handlesignup,name='handlesignup'),
     path('Appointment',views.App,name='App'),
+    path('MyAppointments',views.MyAppointments,name='MyAppointments'),
+    
 ]

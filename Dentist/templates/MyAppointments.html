@@ -73,64 +73,40 @@
                  
         </nav>
         <div class="slider-item" style="background-image: url(static/images/login.jpg);">
-        <div class="container py-4 h-100">
-          <form method="post" action="/Appointment">{% csrf_token %}
-              <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-11 col-md-7 col-md-5 col-lg-4">
-              <div class="card bg-dark text-white" style="border-radius: 4rem;">
-              <div class="card-body p-4 text-center">
-              <div class="mb-md-2 mt-md-2 pb-3">
-                <h2 class="fw-bold mb-2 text-uppercase">Appointment</h2>
-                  <p class="text-white-50 mb-5">Book your Appointment</p>
-                  {% for message in messages  %}
-                <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-                    <strong></strong>{{message}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                  {% endfor %}
-                  <div class="form-outline form-white mb-2">
-                    
-                      <div class="form-outline form-white mb-2">
-                        <input type="text" class="form-control" name="name" placeholder="Enter your Name" required>
-                          </div>
-                          
-                          
-                              
-                              <div class="form-outline form-white mb-2">
-                                <input type="email" class="form-control" name="email" placeholder="Enter your Email" required>
-                                  </div>
-                                  
-                              <div class="form-outline form-white mb-2">
-                                <input type="Age" class="form-control" name="age" placeholder="Enter your Age" required>
-                                  </div>
-                                  <div class="form-outline form-white mb-2">
-                                    <input type="tel" class="form-control" name="phone" placeholder="Enter your Phone Number" required>
-                                      </div>
-                                 
-                                  
-                                  <div class="form-outline form-white mb-2">
-                                    <input type="Date" class="form-control" name="appointmentdate" placeholder="Select Appointment Date" required>
-                                      </div>
-                                      
-                                      <div class="form-outline form-white mb-2">
-                                        <input type="Time" class="form-control" name="appointmentTime" placeholder="Select Appointment Time" required>
-                                          </div>
-                                          
-                                          <button type="submit" class="btn btn-primary btn-border-radius-sm mb-4">Book Appointment</button>
-                                        </form>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                         </div>
-                       </div>
-                     </div>
-                 
+          <div class="container">
+            <h3 class="text-centre">My Appointments</h3>
+            <div class="row row-cols-4">
+             
+              <div class="col">Name  
+                {% for post in allPosts %}<br>{{post.name}}</br>
+                {% endfor %}
+              </div>
+              <div class="col">Appointment Date  
+                {% for post in allPosts %}<br>{{post.appointmentdate}}</br>
+                {% endfor %}
+              </div>
+              <div class="col">Appointment Time 
+                {% for post in allPosts %} <br> {{post.appointmentTime}}</br>
+                {% endfor %}
+              </div>
+             
+                
+              
+              
+                
+              
+             
+                
+             
+              
+            </div>
+          </div>
+       
        
 
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
     <!-- footer -->
      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -203,6 +179,7 @@ Chinchwad</span></li>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
+      </div>
       </div>
     </footer>
     </div>
