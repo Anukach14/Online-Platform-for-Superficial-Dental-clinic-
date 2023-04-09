@@ -92,11 +92,12 @@ def App(request):
         fname = request.POST.get("name")
         femail = request.POST.get("email")
         fage = request.POST.get("age")
+        Dname=request.POST.get("DocName")
         phone = request.POST.get("phone")
         fdate = request.POST.get("appointmentdate")
         ftime = request.POST.get("appointmentTime")
         print(fname,femail,fage,phone,fdate,ftime)
-        query = Appointment(None,fname ,femail, fage, phone, fdate, ftime)
+        query = Appointment(None,fname ,femail, fage,Dname, phone, fdate, ftime)
         query.save()
         
         messages.info(request, "Your Appointment is Confirmed")
@@ -108,4 +109,4 @@ def MyAppointments(request):
      allPosts=Appointment.objects.all()
      context={'allPosts':allPosts}
      print(allPosts)
-     return render(request, 'MyAppointments.html')
+     return render(request, 'MyAppointments.html',context)

@@ -8,6 +8,7 @@ class Appointment(models.Model):
     name = models.CharField(max_length=50)  # Added a name field
     email = models.EmailField(max_length=50)
     age = models.PositiveBigIntegerField(null=True, blank=True)
+    Dname=models.CharField(max_length=50,null=True, blank=True)
     phoneNumber = models.CharField(max_length=15, null=True, blank=True)
     appointmentdate = models.DateField(max_length=10)
     appointmentTime = models.TimeField(null=True, blank=True)
