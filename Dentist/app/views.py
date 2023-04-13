@@ -46,6 +46,10 @@ def handleLogin(request):
         username=request.POST.get("username")
         pass1=request.POST.get("pass1")
         myuser=authenticate(username=username,password=pass1)
+       
+        userob=User.objects.filter(username=username).first()
+        print(userob.email)
+        request.session['email']=userob.email
         if myuser is not None:
             login(request,myuser)
             messages.success(request,"Login Success")
@@ -63,6 +67,8 @@ def handlesignup(request):
         password=request.POST.get("pass1")
         confirmpassword=request.POST.get("pass2") 
         #print(username,email,password,confirmpassword)
+        
+        
         if  password!=confirmpassword:
              messages.warning(request,"Password is Incorrect ")
              return redirect('/signup')
@@ -99,14 +105,16 @@ def App(request):
         print(fname,femail,fage,phone,fdate,ftime)
         query = Appointment(None,fname ,femail, fage,Dname, phone, fdate, ftime)
         query.save()
-        
+       
         messages.info(request, "Your Appointment is Confirmed")
         return redirect('/Appointment')
     return render(request, 'Appointment.html')
 
 
 def MyAppointments(request):
-     allPosts=Appointment.objects.filter(name='fname')
-     context={'allPosts':allPosts}
-     print(allPosts)
-     return render(request, 'MyAppointments.html',context)
+   
+    useremail=request.session.get('email')
+    allPosts=Appointment.objects.filter(email=useremail)
+    context={'allPosts':allPosts}
+    print(allPosts)
+    return render(request, 'MyAppointments.html',context)
