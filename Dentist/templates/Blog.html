@@ -46,7 +46,7 @@
 	          <li class="nav-item"><a href="/Doctors" class="nav-link">Meet our Doctors</a></li>
 	          <li class="nav-item"><a href="/Treatments" class="nav-link">Treatments</a></li>
 	          <li class="nav-item active"><a href="/Blog" class="nav-link">Patient</a></li>
-	          <li class="nav-item"><a href="/About" class="nav-link">About</a></li>
+	      
 	          <li class="nav-item"><a href="/Contact" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="/Login" class="nav-link">Login</a></li>
             <li class="nav-item"><a href="/signup" class="nav-link">Sign Up</a></li>
@@ -72,35 +72,46 @@
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
             <h2 class="mb-4">Patient Testimonial</h2>
-            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
             
           </div>
         </div>
+     
+      
+       
         {% for post in allPosts reversed %}
+        
         <div class="container">
+          <div class="row justify-content-center mb-5 pb-3">
          
             <div class="col-md-7 heading-section ftco-animate text-center">
+            
+              <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
             </div>
+          </div>
          
 
-        	
+          <div class="row">
         	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         		
             <div class="staff">
       				
       				<div class="info text-center">
-      					<h5 class="card-title">{{post.title}}</h5>
+      					<h5 class="card-title">{{post.title}}</h5> 
       					<div class="text">
 	        				<p style="color:White;">{{post.description}}</p>
+                
                   <p style="color:White">Posted By :<b>{{post.authname}}</b></p>
-                  <p style="color:White;">TimeStamp :<b>{{post.timeStamp}}</b></p> 
-	        			</div>
+                  
+                  
+                  <p style="color:White;">TimeStamp :<b>{{post.timeStamp}}</b></p>  
+                </div>
       				</div>
         		</div>
         	</div>
         </div>
-    
-          {% endfor %}
+        {% endfor %}
+        
+      
         
     
       

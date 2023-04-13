@@ -106,7 +106,7 @@ def App(request):
 
 
 def MyAppointments(request):
-     allPosts=Appointment.objects.all()
+     allPosts=Appointment.objects.filter(name='fname')
      context={'allPosts':allPosts}
      print(allPosts)
      return render(request, 'MyAppointments.html',context)
